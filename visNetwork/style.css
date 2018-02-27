@@ -1,0 +1,102 @@
+/* HTML styles */
+html{ width: 100%; }
+body{
+  width: 100%;
+  margin: 0; padding: 0;
+  display: flex;
+  font-family: sans-serif; font-size: 75%; }
+  .rcontrols {
+    flex-basis: 500px;
+    right: 0;
+  }
+  .rcontrols .force {
+    background-color:#eee;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px 0;
+  }
+
+.controls {
+  flex-basis: 200px;
+  padding: 0 5px;
+}
+.controls .force {
+  background-color:#eee;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px 0;
+}
+.rcontrols .force p label { margin-right: .5em; font-size: 120%; font-weight: bold;}
+.rcontrols .force p { margin-top: 0;}
+.rcontrols .force label { display: inline-block; }
+
+.controls .force p label { margin-right: .5em; font-size: 120%; font-weight: bold;}
+.controls .force p { margin-top: 0;}
+.controls .force label { display: inline-block; }
+.controls input[type="checkbox"] { transform: scale(1.2, 1.2); }
+.controls input[type="range"] { margin: 0 5% 0.5em 5%; width: 90%; }
+/* alpha viewer */
+.controls .alpha p { margin-bottom: .25em; }
+.controls .alpha .alpha_bar { height: .5em; border: 1px #777 solid; border-radius: 2px; padding: 1px; display: flex; }
+.controls .alpha .alpha_bar #alpha_value { background-color: #555; border-radius: 1px; flex-basis: 100% }
+.controls .alpha .alpha_bar:hover { border-width: 2px; margin:-1px; }
+.controls .alpha .alpha_bar:active #alpha_value { background-color: #222 }
+
+/* SVG styles */
+svg {
+  flex-basis: 100%;
+  min-width: 200px;
+}
+.links line {
+  stroke: #aaa;
+}
+.nodes circle {
+  pointer-events: all;
+}
+
+/*Tooltip*/
+#main {
+  clear: both;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  -moz-border-radius:3px;
+  border-radius: 3px;
+  border: 2px solid #DDD;
+  background: #fff;
+  opacity: 1;
+  color: #000;
+  padding: 10px;
+  width: 300px;
+  font-size: 15px;
+  z-index: 120;
+}
+
+.tooltip p.main {
+  font-size: 10px;
+  text-align: left;
+  padding:0;
+  margin:0;
+}
+
+hr.tooltip-hr {
+  padding:3px 0 0 0;
+  margin:3px 0 3px 0;
+}
+
+.tooltip .title {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.tooltip .name {
+  font-weight:bold;
+}
+
+line.link {
+  fill: none;
+  stroke-width: 1.5px;
+}

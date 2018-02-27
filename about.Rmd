@@ -1,0 +1,87 @@
+---
+author: "Roseric Azondekon"
+date: "2/20/2018"
+output: html_notebook
+---
+&nbsp;
+
+This shiny application requires the following R packages:
+
++ [shiny](https://shiny.rstudio.com "Official Shiny page!")
++ [shinyDashboard](https://rstudio.github.io/shinydashboard/ "shinydashboard")
++ [igraph](http://igraph.org/r/ "igraph R package")
++ [networkD3](https://cran.r-project.org/web/packages/networkD3/index.html "networkD3 CRAN page")
++ [ergm](https://cran.r-project.org/web/packages/ergm/index.html "ergm CRAN page") or the [statnet](https://cran.r-project.org/web/packages/statnet/index.html "statnet CRAN page") suites of R packages.
++ [btergm](https://cran.r-project.org/web/packages/btergm/index.html "btergm CRAN page") or the [statnet](https://cran.r-project.org/web/packages/statnet/index.html "statnet CRAN page") suites of R packages.
++ [devtools](https://cran.r-project.org/web/packages/devtools/README.html "devtools CRAN page")
++ [ipify](https://github.com/gregce/ipify "ipify Github page")
++ [servr](https://cran.r-project.org/web/packages/servr/README.html "servr CRAN page")
++ [shinycssloaders](https://cran.r-project.org/web/packages/shinycssloaders/README.html "shinycssloaders CRAN page")
++ [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html "RJSONIO CRAN page")
++ [rmarkdown](https://rmarkdown.rstudio.com/ "R Markdown Official page")
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+The following shell libraries are required for the installation of the R package **igraph**:
+
++ libssl-dev
++ libcurl4-openssl-dev
++ libxml2-dev
+
+For more information on possible issues regarding the installation of **igraph**, click [here](https://stackoverflow.com/questions/45318188/getting-error-in-function-igraph-write-graph-graphml-while-installing-igrap).
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+The installation of the R package **btergm** requires the installation of one of the following tcltk shell libraries:
+
++ tcl8.5-dev
++ tk8.5-dev
+
+For more information on possible issues on the installation of **btergm**, click [here](http://r.789695.n4.nabble.com/Where-is-the-tcltk-package-td3434915.html).
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+After installing one of the abovementioned libraries, you might need to reinstall R base:
+
++ sudo apt-get remove r-base
++ sudo apt-get install r-base
+
+Finally, [npm](https://www.rosehosting.com/blog/install-npm-on-ubuntu-16-04/) and [nodeJS](http://jasonwatmore.com/post/2016/06/22/nodejs-setup-simple-http-server-local-web-server) are required for the installation of the http-server.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+A [docker](https://www.docker.com/ "Docker Official page") container has been set up for this webApp so it can be run locally. You may submit one of the following docker pull request:
+
++ docker pull rosericazondekon/authorvis
++ docker pull rosericazondekon/authorvis:latest
+
+
+Thank you for your interest in **AuthorVis**.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+
+
+Roseric Azondekon
+
+roseric_2000@yahoo.fr
+
+Milwaukee, WI, USA
+
+February 20th, 2018

@@ -1,0 +1,40 @@
+---
+author: "Roseric Azondekon"
+date: "2/20/2018"
+output: html_document
+---
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
++ Check this project Git repository [here](https://github.com/rosericazondekon/authorvis "authorvis Repo").
++ Check the Author Name Disambiguation, the network building source codes [here](https://github.com/rosericazondekon/bibProject "bibProjet Git Repo").
++ The analysis and modeling source codes are available [here](https://github.com/rosericazondekon/netAnalysis "Data Analysis Repo").
++ The docker compose file is available [here](http://# "docker compose file").
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+Thank you for your interest in **AuthorVis**.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+Roseric Azondekon
+
+roseric_2000@yahoo.fr
+
+Milwaukee, WI, USA
+
+February 20th, 2018
+
