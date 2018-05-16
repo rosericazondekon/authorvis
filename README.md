@@ -43,19 +43,21 @@ We proposed two predictive models to estimate future tie probability between two
 
 ### Exponential Random Graph model
 
-Given a random graph \\( G=(V,E) \\), for two distinct nodes \\( i,j V \\), we define a random binary variable \\( Y\_{ij} \\) such that \\( Y\_{ij} = 1 \\) if there is an edge \\( e E \\) between \\( i \\) and \\( j \\), and \\( Y\_{ij} = 0 \\) otherwise.
+Given a random graph $G=(V,E)$, for two distinct nodes $i,j \in V$, we define a random binary variable $Y_{ij}$ such that $Y_{ij} = 1$ if there is an edge $e \in E$ between $i$ and $j$, and $Y_{ij} = 0$ otherwise.
 
-Since co-authorship networks are by definition undirected networks, \\( Y\_{ij} = Y\_{ji} \\) and the matrix \\( =\\) represents the random adjacency matrix for \\( G \\). The general formulation of ERGM is therefore:
+Since co-authorship networks are by definition undirected networks, $Y_{ij} = Y_{ji}$ and the matrix $\mathbf{Y}=\left[ Y_{ij} \right]$ represents the random adjacency matrix for $G$. The general formulation of ERGM is therefore:
 
-\\\[ Pr(=)=( ) exp { \_{H} \_H g\_H() } \\\]
+$$Pr(\mathbf{Y}=\mathbf{y})=\left( \frac{1}{\kappa} \right) exp \{ \sum_{H} \theta_H g_H(\mathbf{y}) \}$$
 
-where each \\( H \\) is a configuration, a set of possible edges among a subset of the vertices in \\( G \\) and
+where each $H$ is a configuration, a set of possible edges among a subset of the vertices in $G$ and 
 
-\\( g\_H( )= *{ y*{ij } H } y\_{ij} \\) is the network statistic corresponding to the configuration \\( H \\);
+$g_H( \mathbf{y} )= \prod_{ y_{ij } \in H } y_{ij}$ is the network statistic corresponding to the configuration $H$; 
 
-\\( g\_H( )=1 \\) if the configuration is observed in the network \\( \\), and is \\( 0 \\) otherwise.
+$g_H( \mathbf{y} )=1$ if the configuration is observed in the network $\mathbf{y}$, and is \$0$ otherwise. 
 
-\\( \_H \\) is the parameter corresponding to the configuration \\( H \\) (and is non-zero only if all pairs of variables in \\( H \\) are assumed to be conditionally dependent); \\( \\) is a normalization constant.
+$\theta_H$ is the parameter corresponding to the configuration $H$ (and is non-zero only if all pairs of variables in $H$ are assumed to be conditionally dependent); 
+$\kappa$ is a normalization constant defined as:
+$$\kappa = \sum_{\mathbf{y}}exp \set*{ \sum_{H} \theta_H g_H(\mathbf{y})}$$
 
  
 
