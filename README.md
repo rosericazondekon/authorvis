@@ -12,9 +12,9 @@ Various tools for the visualization of co-authorship networks have been proposed
 
 -   **NeL2**, a general purpose tool for the visualization of networks as a layered network diagram was proposed by [Nakazono, Misue, and Tanaka](https://dl.acm.org/citation.cfm?id=1151920 "NeL 2: Network drawing tool for handling layered structured network diagram.").
 
--   A Java based toolkits was proposed by [Liu and colleagues](www.doi.org/10.1145/996350.996470 "Toolkits for visualizing co-authorship graph.").
+-   A Java based toolkits was proposed by [Liu and colleagues](https://dl.acm.org/citation.cfm?doid=996350.996470 "Toolkits for visualizing co-authorship graph.").
 
--   The **VVRC**, a Web-based tool was proposed by [Barbosa and colleagues](https://dl.acm.org/citation.cfm?doid=996350.996470 "Web based tool for visualization and recommendation on co-authorship network").
+-   The **VVRC**, a Web-based tool was proposed by [Barbosa and colleagues](https://dl.acm.org/citation.cfm?id=2213975 "Web based tool for visualization and recommendation on co-authorship network").
 
 -   **VICI**, a Python-based co-authorship tool was proposed by [Odoni and colleagues](http://www.semar.de/ws/publikationen/2017_ISI_VICI.pdf "Visualisation of Collaboration in Social Collaborative Knowledge Management Systems").
 
