@@ -53,7 +53,7 @@ where each ![](http://latex.codecogs.com/gif.latex?H) is a configuration, a set 
 
 ![](http://latex.codecogs.com/gif.latex?g_H%28%20%5Cmathbf%7By%7D%20%29%3D%20%5Cprod_%7B%20y_%7Bij%20%7D%20%5Cin%20H%20%7D%20y_%7Bij%7D) is the network statistic corresponding to the configuration ![](http://latex.codecogs.com/gif.latex?H); 
 
-![](http://latex.codecogs.com/gif.latex?g_H%28%20%5Cmathbf%7By%7D%20%29%3D1) if the configuration is observed in the network $\mathbf{y}$, and is ![](http://latex.codecogs.com/gif.latex?0) otherwise. 
+![](http://latex.codecogs.com/gif.latex?g_H%28%20%5Cmathbf%7By%7D%20%29%3D1) if the configuration is observed in the network ![](http://latex.codecogs.com/gif.latex?%5Cmathbf%7By%7D), and is ![](http://latex.codecogs.com/gif.latex?0) otherwise. 
 
 ![](http://latex.codecogs.com/gif.latex?%5Ctheta_H) is the parameter corresponding to the configuration ![](http://latex.codecogs.com/gif.latex?H) (and is non-zero only if all pairs of variables in ![](http://latex.codecogs.com/gif.latex?H) are assumed to be conditionally dependent); 
 ![](http://latex.codecogs.com/gif.latex?%5Ckappa) is a normalization constant defined as:
