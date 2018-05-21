@@ -14,7 +14,7 @@ Various tools for the visualization of co-authorship networks have been proposed
 
 -   A Java based toolkits was proposed by [Liu and colleagues](www.doi.org/10.1145/996350.996470 "Toolkits for visualizing co-authorship graph.").
 
--   The **VVRC**, a Web-based tool was proposed by [Barbosa and colleagues](www.doi.org/10.1145/2213836.2213975 "Web based tool for visualization and recommendation on co-authorship network").
+-   The **VVRC**, a Web-based tool was proposed by [Barbosa and colleagues](https://dl.acm.org/citation.cfm?doid=996350.996470 "Web based tool for visualization and recommendation on co-authorship network").
 
 -   **VICI**, a Python-based co-authorship tool was proposed by [Odoni and colleagues](http://www.semar.de/ws/publikationen/2017_ISI_VICI.pdf "Visualisation of Collaboration in Social Collaborative Knowledge Management Systems").
 
