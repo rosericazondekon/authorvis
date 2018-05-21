@@ -57,6 +57,7 @@ where each ![](http://latex.codecogs.com/gif.latex?H) is a configuration, a set 
 
 ![](http://latex.codecogs.com/gif.latex?%5Ctheta_H) is the parameter corresponding to the configuration ![](http://latex.codecogs.com/gif.latex?H) (and is non-zero only if all pairs of variables in ![](http://latex.codecogs.com/gif.latex?H) are assumed to be conditionally dependent); 
 ![](http://latex.codecogs.com/gif.latex?%5Ckappa) is a normalization constant defined as:
+
 ![](http://latex.codecogs.com/gif.latex?%5Ckappa%20%3D%20%5Csum_%7B%5Cmathbf%7By%7D%7Dexp%20%5C%7B%20%5Csum_%7BH%7D%20%5Ctheta_H%20g_H%28%5Cmathbf%7By%7D%29%20%5C%7D)
 
  
