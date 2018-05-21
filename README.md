@@ -43,21 +43,21 @@ We proposed two predictive models to estimate future tie probability between two
 
 ### Exponential Random Graph model
 
-Given a random graph [!eq1](http://latex.codecogs.com/gif.latex?G%3D%28V%2CE%29) $G=(V,E)$, for two distinct nodes $i,j \in V$, we define a random binary variable $Y_{ij}$ such that $Y_{ij} = 1$ if there is an edge $e \in E$ between $i$ and $j$, and $Y_{ij} = 0$ otherwise.
+Given a random graph ![](http://latex.codecogs.com/gif.latex?G%3D%28V%2CE%29), for two distinct nodes ![](http://latex.codecogs.com/gif.latex?i%2Cj%20%5Cin%20V), we define a random binary variable ![](http://latex.codecogs.com/gif.latex?Y_%7Bij%7D) such that ![](http://latex.codecogs.com/gif.latex?Y_%7Bij%7D%20%3D%201) if there is an edge ![](http://latex.codecogs.com/gif.latex?e%20%5Cin%20E) between ![](http://latex.codecogs.com/gif.latex?i) and ![](http://latex.codecogs.com/gif.latex?j), and ![](http://latex.codecogs.com/gif.latex?Y_%7Bij%7D%20%3D%200) otherwise.
 
-Since co-authorship networks are by definition undirected networks, $Y_{ij} = Y_{ji}$ and the matrix $\mathbf{Y}=\left[ Y_{ij} \right]$ represents the random adjacency matrix for $G$. The general formulation of ERGM is therefore:
+Since co-authorship networks are by definition undirected networks, ![](http://latex.codecogs.com/gif.latex?Y_%7Bij%7D%20%3D%20Y_%7Bji%7D) and the matrix ![](http://latex.codecogs.com/gif.latex?%5Cmathbf%7BY%7D%3D%5Cleft%5B%20Y_%7Bij%7D%20%5Cright%5D) represents the random adjacency matrix for ![](http://latex.codecogs.com/gif.latex?G). The general formulation of ERGM is therefore:
 
-$$Pr(\mathbf{Y}=\mathbf{y})=\left( \frac{1}{\kappa} \right) exp \{ \sum_{H} \theta_H g_H(\mathbf{y}) \}$$
+![](http://latex.codecogs.com/gif.latex?Pr%28%5Cmathbf%7BY%7D%3D%5Cmathbf%7By%7D%29%3D%5Cleft%28%20%5Cfrac%7B1%7D%7B%5Ckappa%7D%20%5Cright%29%20exp%20%5C%7B%20%5Csum_%7BH%7D%20%5Ctheta_H%20g_H%28%5Cmathbf%7By%7D%29%20%5C%7D)
 
-where each $H$ is a configuration, a set of possible edges among a subset of the vertices in $G$ and 
+where each ![](http://latex.codecogs.com/gif.latex?H) is a configuration, a set of possible edges among a subset of the vertices in ![](http://latex.codecogs.com/gif.latex?G) and 
 
-$g_H( \mathbf{y} )= \prod_{ y_{ij } \in H } y_{ij}$ is the network statistic corresponding to the configuration $H$; 
+![](http://latex.codecogs.com/gif.latex?g_H%28%20%5Cmathbf%7By%7D%20%29%3D%20%5Cprod_%7B%20y_%7Bij%20%7D%20%5Cin%20H%20%7D%20y_%7Bij%7D) is the network statistic corresponding to the configuration ![](http://latex.codecogs.com/gif.latex?H); 
 
-$g_H( \mathbf{y} )=1$ if the configuration is observed in the network $\mathbf{y}$, and is \$0$ otherwise. 
+![](http://latex.codecogs.com/gif.latex?g_H%28%20%5Cmathbf%7By%7D%20%29%3D1) if the configuration is observed in the network $\mathbf{y}$, and is ![](http://latex.codecogs.com/gif.latex?0) otherwise. 
 
-$\theta_H$ is the parameter corresponding to the configuration $H$ (and is non-zero only if all pairs of variables in $H$ are assumed to be conditionally dependent); 
-$\kappa$ is a normalization constant defined as:
-$$\kappa = \sum_{\mathbf{y}}exp \set*{ \sum_{H} \theta_H g_H(\mathbf{y})}$$
+![](http://latex.codecogs.com/gif.latex?%5Ctheta_H) is the parameter corresponding to the configuration ![](http://latex.codecogs.com/gif.latex?H) (and is non-zero only if all pairs of variables in ![](http://latex.codecogs.com/gif.latex?H) are assumed to be conditionally dependent); 
+![](http://latex.codecogs.com/gif.latex?%5Ckappa) is a normalization constant defined as:
+![](http://latex.codecogs.com/gif.latex?%5Ckappa%20%3D%20%5Csum_%7B%5Cmathbf%7By%7D%7Dexp%20%5C%7B%20%5Csum_%7BH%7D%20%5Ctheta_H%20g_H%28%5Cmathbf%7By%7D%29%20%5C%7D)
 
  
 
