@@ -43,7 +43,7 @@ We proposed two predictive models to estimate future tie probability between two
 
 ### Exponential Random Graph model
 
-Given a random graph $G=(V,E)$, for two distinct nodes $i,j \in V$, we define a random binary variable $Y_{ij}$ such that $Y_{ij} = 1$ if there is an edge $e \in E$ between $i$ and $j$, and $Y_{ij} = 0$ otherwise.
+Given a random graph [!eq1](http://latex.codecogs.com/gif.latex?G%3D%28V%2CE%29) $G=(V,E)$, for two distinct nodes $i,j \in V$, we define a random binary variable $Y_{ij}$ such that $Y_{ij} = 1$ if there is an edge $e \in E$ between $i$ and $j$, and $Y_{ij} = 0$ otherwise.
 
 Since co-authorship networks are by definition undirected networks, $Y_{ij} = Y_{ji}$ and the matrix $\mathbf{Y}=\left[ Y_{ij} \right]$ represents the random adjacency matrix for $G$. The general formulation of ERGM is therefore:
 
