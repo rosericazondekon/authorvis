@@ -223,7 +223,7 @@ function ticked() {
         .on("click",showNodeInfo)
         .on("dblclick", showNodeDetails)
         .on("mouseout", hideDetails);
-    d3.select('#alpha_value').style('flex-basis', (simulation.alpha()*100) + '%');
+    d3.select('#alpha_value').style('flex-basis', (simulation.alpha()*100) + '%'); 
 
 }
 
