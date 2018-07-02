@@ -1,6 +1,7 @@
 #-------------------------------------------------------------------------
 #  Roseric Azondekon,
 #  February 20th, 2018
+#  Last Update: July 2nd, 2018
 #  Milwaukee, WI, USA
 #-------------------------------------------------------------------------
 
@@ -8,9 +9,9 @@
 graphToJSON <- function(graph,tmp){
   #creation de la partie qui renseigne les "nodes"
   temp<-cbind(as.numeric(V(graph)$id),V(graph)$name,V(graph)$affil,V(graph)$place,
-              V(graph)$country,as.numeric(V(graph)$numPub),as.numeric(V(graph)$timesCited))
+              V(graph)$country,V(graph)$subject,as.numeric(V(graph)$numPub),as.numeric(V(graph)$timesCited))
   
-  colnames(temp)<-c("id","name","affil","place","country","numPub","timesCited")
+  colnames(temp)<-c("id","name","affil","place","country","topics","numPub","timesCited")
   js1<-toJSON(temp)
   
   #creation de la partie qui renseigne les "liens"
@@ -54,7 +55,8 @@ function(input, output, session) {
   a <- Sys.time()
   tmp <- digest::digest(a) #hashed timestamped temporary folder name
   system(paste0("mkdir ",tmp," && cp -r ./visNetwork/. ./",tmp,"/."), wait = FALSE)
-  output$nText <- renderText({
+  
+  getGraph <- reactive({
     net<-input$netw
     if(net == "malnet.rda"){
       year <- input$myear
@@ -86,10 +88,44 @@ function(input, output, session) {
       neighb <- c(author,unique(V(g)$name[as.numeric(neighbors(graph = g,v=author))]))
       g <- induced_subgraph(g,neighb)
     }
+    g
+  })
+  
+  output$nText <- renderText({
+    g<-getGraph()
     N <- length(V(g))
     E <- length(E(g))
     # paste(length(author))
     paste("The current query will return:",N,"authors and",E,"collaboration ties.")
+  })
+  
+  output$summary <- renderPrint({
+    top<-function(x) if(length(x)<10){x}else{x[1:10]}
+    g<-getGraph()
+    dens<-round(graph.density(g)*100,2)
+    trans<-round(transitivity(g),2)
+    avl<-round(average.path.length(g),2)
+    diam<-round(diameter(g),2)
+    eb <- edge.betweenness(g)
+    deg<-degree(g)
+    bw <- betweenness(g)
+    edge_flow<-E(g)[order(eb, decreasing=T)]
+    clos<-closeness(g)
+    
+    top_hubs<-top(V(g)$name[order(deg, decreasing=T)])
+    top_broker<-top(V(g)$name[order(bw, decreasing=T)])
+    top_closest<-top(V(g)$name[order(clos, decreasing=T)])
+    top_edge<-top(E(g)[order(eb, decreasing=T)])
+    cutvertices<-articulation.points(decompose.graph(g)[[1]])
+    
+    msg<-paste0("The current selection graph has a density of ",dens,"%",
+                ", a global clustering of ",trans,
+                ", an average path length of ",avl,
+                ", and a diameter = ",diam)
+    list(' '=msg,'Top (10) most connected authors'=top_hubs, 'Top (10) broker authors'=top_broker,
+         'Top (10) most central authors (closest to other authors)'=top_closest, 
+         'Top (10) most important edges for information flow'=top_edge,
+         'Weak articulation points'=cutvertices)
   })
   
   visLink <- eventReactive(input$query, {
@@ -117,15 +153,18 @@ function(input, output, session) {
                     title="concat",doi="concat"))
     V(g)$id<-0:length(V(g))
     if(length(author)!=0){
-      neighb <- c(author,unique(V(g)$name[as.numeric(neighbors(graph = g,v=author))]))
-      g <- induced_subgraph(g,neighb)
+      name<-V(g)$name
+      eids<-unlist(incident_edges(graph = g,author))
+      g<-subgraph.edges(graph = g, eids, delete.vertices = TRUE)
+      # neighb <- unique(c(author,neighbors(graph = g,v=author)$name))
+      # g <- induced.subgraph(graph=g,vids=neighb)
       V(g)$id<-0:length(V(g))
     }
     graphToJSON(g,tmp)
     system("killall node", wait = FALSE)
     ip <- get_ip()
-    # port <- round(runif(1,10000,20000))
-    port<-8081
+    port <- round(runif(1,10000,11000))
+    # port<-8081
     # cmd <- paste0("cd ./visNetwork && Rscript -e 'servr::httd()' -b -p",port)
     cmd <- paste0("cd ./",tmp," && http-server -p ", port," -o")
     system(cmd, wait = FALSE)
@@ -184,10 +223,9 @@ function(input, output, session) {
   
   session$onSessionEnded(function() {
     b <- Sys.time()
-    endMsg <- paste("The session opening at", a,"has ended at",b)
+    endMsg <- paste("The session opening at", a,"has ended at", b)
     print(endMsg)
     system(paste0("rm -r ",tmp)) # Delete temporary session folder
     system("killall node", wait = FALSE) # kill all http server
   })
 }
-
