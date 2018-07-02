@@ -1,6 +1,7 @@
 #-------------------------------------------------------------------------
 #  Roseric Azondekon,
 #  February 20th, 2018
+#  Last Update: July 2nd, 2018
 #  Milwaukee, WI, USA
 #-------------------------------------------------------------------------
 
@@ -21,6 +22,17 @@ library(rmarkdown)
 # system("killall node", wait = F) # Run this code to close all other http server instances running
 # system('cd ./visNetwork && http-server -p 8080', wait = FALSE)
 
+# Add authors subjects for world cloud...
+addAuthSubj<-function(graph){
+  all_subj<-c()
+  for(v in V(graph)){
+    edges<-unlist(incident_edges(graph,v))
+    subj<-gsub("'","",gsub("u'","",paste(E(graph)$subject[edges],collapse = ', ')))
+    all_subj<-c(all_subj,subj)
+  }
+  V(graph)$subject<-all_subj
+  graph
+}
 
 print("Downloading required data files... Please, wait...")
 
@@ -128,19 +140,19 @@ if(!file.exists("./data/listtbnet.rds") & !exists("listtbnet")){
 print("Loading global variables...")
 #Load each network
 #Loading data...
-if(!exists("malnet")){malnet<-get(load("./data/malnet.rda"))}
-if(!exists("hivnet")){hivnet<-get(load("./data/hivnet.rda"))}
-if(!exists("tbnet")){tbnet<-get(load("./data/tbnet.rda"))}
+if(!exists("malnet")){malnet<-addAuthSubj(get(load("./data/malnet.rda"))})
+if(!exists("hivnet")){hivnet<-addAuthSubj(get(load("./data/hivnet.rda"))})
+if(!exists("tbnet")){tbnet<-addAuthSubj(get(load("./data/tbnet.rda"))})
 
 #create a list containing all networks
 allNet <- list()
-allNet[["malnet.rda"]]<-malnet
-allNet[["hivnet.rda"]]<-hivnet
+allNet[["malnet.rda"]]<-malnet)
+allNet[["hivnet.rda"]]<-hivnet)
 allNet[["tbnet.rda"]]<-tbnet
 
 #Loading ergm models
 print("Loading ergm models...")
-if(!exists("malergm")){malergm <- get(load("./data/malergm.rda"))}
+if(!exists("malergm")){malergm <- get(load("./data/malergm.rda"));maltergm<-malergm}
 if(!exists("hivergm")){hivergm <- readRDS("./data/hivergm.rds")}
 if(!exists("tbergm")){tbergm <- readRDS("./data/tbergm.rds")}
 
